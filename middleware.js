@@ -1,5 +1,6 @@
+const resTime = require('response-time')
 
-module.exports = (req, res, next) => {
+module.exports = resTime((req, res, time) => {
   const dateTime = new Date();
   const year = dateTime.getFullYear()
   const month = dateTime.getMonth() + 1
@@ -7,6 +8,8 @@ module.exports = (req, res, next) => {
   const hour = dateTime.getHours()
   const min = dateTime.getMinutes()
   const sec = dateTime.getSeconds()
-  console.log(`${year}-${month}-${day} ${hour}:${min}:${sec} | ${req.method} from ${req.url}`)
-  next()
-}
+
+  console.log(`${year}-${month}-${day} ${hour}:${min}:${sec} | ${req.method} from ${req.url} | total time : ${time}ms`)
+
+})
+

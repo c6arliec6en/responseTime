@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const timeStamps = require('./middleware')
+const time = require('./middleware')
 
-app.use(timeStamps)
+
+app.use(time)
 
 // 列出全部 Todo
 app.get('/', (req, res) => {
